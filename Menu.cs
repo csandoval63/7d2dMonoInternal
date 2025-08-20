@@ -45,12 +45,22 @@ namespace ExampleAssembly {
                 ToggleCmDm();
             }
 
-            if (GUILayout.Button("Level Up")) {
-                if (O.localPlayer) {
+            //if (GUILayout.Button("Level Up")) {
+                //if (O.localPlayer) {
+                    //Progression prog = O.localPlayer.Progression;
+                    //prog.AddLevelExp(prog.ExpToNextLevel);
+                //}
+            //}
+//Fixed line for 2.2
+            if (GUILayout.Button("Level Up"))
+            {
+                if (O.localPlayer)
+                {
                     Progression prog = O.localPlayer.Progression;
-                    prog.AddLevelExp(prog.ExpToNextLevel);
+                    prog.AddLevelExp(prog.ExpToNextLevel, "_xpOther", Progression.XPTypes.Other, true, true);
                 }
             }
+
 
             if (GUILayout.Button("Add 10 Skill Points")) {
                 if (O.localPlayer) {
@@ -147,3 +157,4 @@ namespace ExampleAssembly {
         private Vector2 scrollPosition;
     }
 }
+
