@@ -45,10 +45,20 @@ namespace ExampleAssembly {
                 ToggleCmDm();
             }
 
-            if (GUILayout.Button("Level Up")) {
+           /* outdated
+           if (GUILayout.Button("Level Up")) {
                 if (O.localPlayer) {
                     Progression prog = O.localPlayer.Progression;
                     prog.AddLevelExp(prog.ExpToNextLevel);
+                }
+            }*/
+            ///updated here so it doesn't error out at least in 2.2
+            if (GUILayout.Button("Level Up"))
+            {
+                if (O.localPlayer)
+                {
+                    Progression prog = O.localPlayer.Progression;
+                    prog.AddLevelExp(prog.ExpToNextLevel, "_xpOther", Progression.XPTypes.Other, true, true);
                 }
             }
 
@@ -147,3 +157,4 @@ namespace ExampleAssembly {
         private Vector2 scrollPosition;
     }
 }
+
